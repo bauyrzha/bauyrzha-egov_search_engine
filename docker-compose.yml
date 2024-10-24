@@ -1,0 +1,35 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    networks:
+      - search_network
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - elasticsearch
+    networks:
+      - search_network
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - backend
+    networks:
+      - search_network
+
+networks:
+  search_network:
+    driver: bridge
+

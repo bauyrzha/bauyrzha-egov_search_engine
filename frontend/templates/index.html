@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eGov Search Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>eGov Multilingual Search</h1>
+    <form action="/search" method="get">
+        <input type="text" name="q" placeholder="Enter search term" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    <div>
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+        {% if results %}
+            <h2>Results for "{{ query }}":</h2>
+            <ul>
+            {% for result in results %}
+                <li>
+                    <a href="{{ result.url }}">{{ result.url }}</a><br>
+                    <h1>{{ result.h1_header }}</h1>  <!-- Display the h1 header -->
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
+
