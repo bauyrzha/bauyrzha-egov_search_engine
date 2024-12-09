@@ -35,9 +35,9 @@ Internet access
 
 1. Clone the repository:
 
-   `git clone https://github.com/bauyrzha/egov_search_engine.git`
+   `git clone git@github.com:bauyrzha/bauyrzha-egov_search_engine.git` or `git clone https://github.com/bauyrzha/bauyrzha-egov_search_engine.git`
 
-   `cd egov_search_engine`
+   `cd bauyrzha-egov_search_engine`
 
 2. Build and run the project:
 
