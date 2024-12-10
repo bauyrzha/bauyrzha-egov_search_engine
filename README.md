@@ -43,15 +43,15 @@ Internet access
 
    `docker-compose up --build`
 
-3. Access the frontend:
-   
-   Visit `http://localhost:5000` in your browser to use the search interface.
-
-4. Running the Scrapy spider:
+3. Running the Scrapy spider:
    
    First time or fresh crawled data run it manually:
 
    `docker-compose exec backend scrapy crawl egov_spider`
+
+4. Access the frontend:
+   
+   Visit `http://localhost:5000` in your browser to use the search interface.
 
 5. Clean the Elasticsearch index:
    
