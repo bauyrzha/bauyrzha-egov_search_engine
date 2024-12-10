@@ -49,5 +49,6 @@ class EgovSpider(scrapy.Spider):
         self.es.index(index='egov_services', id=url, document=doc)
 
     def clear_elasticsearch_index(self):
-        self.es.delete_by_query(index='egov_services', body={"query": {"match_all": {}}})
+        if self.es.indices.exists(index='egov_services'):
+            self.es.delete_by_query(index='egov_services', body={"query": {"match_all": {}}})
 
